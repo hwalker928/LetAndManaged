@@ -10,14 +10,29 @@ module.exports = class LetAndManaged extends Plugin {
       usage: '{c} [quotation]',
       executor: (args) => this.addquote(args)
     });
+    powercord.api.commands.registerCommand({
+      command: 'randomquote',
+      description: 'Sends a random quote from the list.',
+      usage: '{c}',
+      executor: this.randomquote()
+    });
   }
 
   pluginWillUnload() {
      powercord.api.commands.unregisterCommand('addquote');
+     powercord.api.commands.unregisterCommand('randomquote');
   }
   
   async addquote(args) {
     const data = await get(`https://LetAndManaged.18walkerh.repl.co/addquote?quote=${args.join(' ')}&apikey=harry`);
+    return {
+      send: false,
+      result: `${data.body}`
+    };
+  }
+  
+  async randomquote() {
+    const data = await get(`https://LetAndManaged.18walkerh.repl.co/randomquote&apikey=harry`);
     return {
       send: false,
       result: `${data.body}`

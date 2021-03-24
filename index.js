@@ -20,7 +20,7 @@ module.exports = class LetAndManaged extends Plugin {
     const data = await get(`https://LetAndManaged.18walkerh.repl.co/?quote=hi`);
     return {
       send: false,
-      result: data.body.content
+      result: `${data.body.content}`
     };
   }
 

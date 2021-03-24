@@ -32,7 +32,7 @@ module.exports = class LetAndManaged extends Plugin {
   }
   
   async randomquote() {
-    const data = await get(`https://LetAndManaged.18walkerh.repl.co/randomquote&apikey=harry`);
+    const data = await get(`https://LetAndManaged.18walkerh.repl.co/randomquote?apikey=harry`);
     return {
       send: false,
       result: `${data.body}`

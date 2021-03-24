@@ -14,7 +14,7 @@ module.exports = class LetAndManaged extends Plugin {
       command: 'randomquote',
       description: 'Sends a random quote from the list.',
       usage: '{c}',
-      executor: this.randomquote()
+      executor: this.randomquote.bind()
     });
   }
 

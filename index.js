@@ -1,14 +1,14 @@
 const { Plugin } = require('powercord/entities');
-const { get } = require('powercord/http');
+const { post } = require('powercord/http');
 
 module.exports = class LetAndManaged extends Plugin {
 
   startPlugin () {
     powercord.api.commands.registerCommand({
       command: 'addquote',
-      description: 'Adds a quote to the random list.',
+      description: 'Adds a quote to the list.',
       usage: '{c} [quotation]',
-      executor: this.quote.bind()
+      executor: this.addquote.bind()
     });
   }
 
@@ -16,10 +16,11 @@ module.exports = class LetAndManaged extends Plugin {
      powercord.api.commands.unregisterCommand('addquote');
   }
   
-  async quote() {
+  async addquote() {
+    const res = await post('url').set('content-type', 'application/json').send({ quote: 'uwu' })
     return {
-      send: true,
-      result: args.join(' ')
+      send: false,
+      result: res
     };
   }
 

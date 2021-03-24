@@ -1,5 +1,5 @@
 const { Plugin } = require('powercord/entities');
-const { post } = require('powercord/http');
+const { get } = require('powercord/http');
 
 module.exports = class LetAndManaged extends Plugin {
 

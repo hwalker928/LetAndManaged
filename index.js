@@ -7,20 +7,16 @@ module.exports = class LetAndManaged extends Plugin {
     powercord.api.commands.registerCommand({
       command: 'addquote',
       description: 'Adds a quote to the random list.',
-      usage: '{c}{msg}',
-      executor: this.quote.bind()
+      usage: '{c} [quotation]',
+      executor: (args) => ({
+        send: true,
+        result: args.join(' ')
+      })
     });
   }
 
     pluginWillUnload() {
         powercord.api.commands.unregisterCommand('addquote');
     }
-
-  async quote() {
-    return {
-      send: true,
-      result: `${msg}`
-    };
-  }
 
 };

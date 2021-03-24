@@ -17,10 +17,10 @@ module.exports = class LetAndManaged extends Plugin {
   }
   
   async addquote() {
-    const res = await post('url').set('content-type', 'application/json').send({ quote: 'uwu' })
+    const data = await get(`https://LetAndManaged.18walkerh.repl.co/?quote=hi`);
     return {
       send: false,
-      result: res
+      result: data
     };
   }
 

@@ -8,7 +8,7 @@ module.exports = class LetAndManaged extends Plugin {
       command: 'addquote',
       description: 'Adds a quote to the list.',
       usage: '{c} [quotation]',
-      executor: this.addquote.bind()
+      executor: this.addquote.bind(args)
     });
   }
 
@@ -16,7 +16,7 @@ module.exports = class LetAndManaged extends Plugin {
      powercord.api.commands.unregisterCommand('addquote');
   }
   
-  async addquote() {
+  async addquote(args) {
     const data = await get(`https://LetAndManaged.18walkerh.repl.co/?quote=${args.join(' ')}&apikey=harry`);
     return {
       send: false,

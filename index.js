@@ -17,7 +17,7 @@ module.exports = class LetAndManaged extends Plugin {
   }
   
   async addquote(args) {
-    const data = await get(`https://LetAndManaged.18walkerh.repl.co/?quote=${args.join(' ')}&apikey=harry`);
+    const data = await get(`https://LetAndManaged.18walkerh.repl.co/addquote/?quote=${args.join(' ')}&apikey=harry`);
     return {
       send: false,
       result: `${data.body}`

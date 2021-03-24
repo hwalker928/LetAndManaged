@@ -17,10 +17,9 @@ module.exports = class LetAndManaged extends Plugin {
     }
 
   async quote() {
-    const data = await get(`http://api.quotable.io/random`);
     return {
       send: true,
-      result: `${data.body.content}`
+      result: `${msg}`
     };
   }
 

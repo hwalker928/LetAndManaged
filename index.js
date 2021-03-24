@@ -8,7 +8,7 @@ module.exports = class LetAndManaged extends Plugin {
       command: 'addquote',
       description: 'Adds a quote to the list.',
       usage: '{c} [quotation]',
-      executor: this.addquote.bind(args)
+      executor: (args) => this.addquote(args)
     });
   }
 
